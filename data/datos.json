@@ -1,0 +1,13 @@
+{
+    "drones": [],
+    "productos": [
+        {
+            "codigo": "123",
+            "nombre": "hamburguesa",
+            "precio": 35000.0,
+            "peso_kg": 1.5
+        }
+    ],
+    "pedidos": [],
+    "contador_pedidos": 1
+}
