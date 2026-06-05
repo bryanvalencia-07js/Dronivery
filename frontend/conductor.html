@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dronivery - Conductor</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta-formulario">
+            <a href="/" class="volver">← Volver</a>
+
+            <h1>Registro de conductor</h1>
+            <p class="subtitulo">
+                Registra tus datos y la información del dron disponible para domicilios.
+            </p>
+
+            <form id="formConductor">
+                <div class="grupo-formulario">
+                    <label for="nombreConductor">Nombre del conductor</label>
+                    <input type="text" id="nombreConductor" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="telefonoConductor">Teléfono</label>
+                    <input type="text" id="telefonoConductor" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="ciudadConductor">Ciudad donde opera</label>
+                    <select id="ciudadConductor" required>
+                        <option value="">Seleccione una ciudad</option>
+                        <option value="PEREIRA">Pereira</option>
+                        <option value="DOSQUEBRADAS">Dosquebradas</option>
+                        <option value="SANTA ROSA DE CABAL">Santa Rosa de Cabal</option>
+                    </select>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="codigoDron">Código del dron</label>
+                    <input type="text" id="codigoDron" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="modeloDron">Modelo del dron</label>
+                    <input type="text" id="modeloDron" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="bateriaDron">Batería actual (%)</label>
+                    <input type="number" id="bateriaDron" min="0" max="100" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="capacidadDron">Capacidad máxima en kg</label>
+                    <input type="number" id="capacidadDron" step="0.1" min="0.1" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="distanciaDron">Distancia máxima en km</label>
+                    <input type="number" id="distanciaDron" step="0.1" min="0.1" required>
+                </div>
+
+                <button type="submit" class="boton boton-conductor">
+                    Registrar dron
+                </button>
+            </form>
+
+            <div id="mensajeConductor" class="mensaje"></div>
+        </section>
+    </main>
+
+    <script src="/frontend/js/app.js"></script>
+</body>
+</html>

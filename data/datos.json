@@ -1,5 +1,39 @@
 {
-    "drones": [],
+    "drones": [
+        {
+            "codigo": "123456",
+            "modelo": "AX562",
+            "bateria": 75,
+            "capacidad_kg": 2.0,
+            "distancia_maxima_km": 20.0,
+            "estado": "Disponible"
+        },
+        {
+            "conductor": {
+                "nombre": "Bryan",
+                "telefono": "3226967989"
+            },
+            "codigo": "DR001",
+            "modelo": "DJI Mini Delivery",
+            "bateria": 85,
+            "capacidad_kg": 2.0,
+            "distancia_maxima_km": 15.0,
+            "estado": "Disponible"
+        },
+        {
+            "conductor": {
+                "nombre": "Jessica Ceballos Correa",
+                "telefono": "3163483406",
+                "ciudad": "DOSQUEBRADAS"
+            },
+            "codigo": "AX226993",
+            "modelo": "FLYHIGH 2026",
+            "bateria": 96,
+            "capacidad_kg": 2.0,
+            "distancia_maxima_km": 25.0,
+            "estado": "Disponible"
+        }
+    ],
     "productos": [
         {
             "codigo": "123",
@@ -8,6 +42,68 @@
             "peso_kg": 1.5
         }
     ],
-    "pedidos": [],
-    "contador_pedidos": 1
+    "pedidos": [
+        {
+            "numero": 1,
+            "cliente": {
+                "nombre": "bryan valencia",
+                "telefono": "3226967989",
+                "direccion": "cra 10 #52",
+                "barrio": "Jardín"
+            },
+            "producto": {
+                "codigo": "123",
+                "nombre": "hamburguesa",
+                "precio": 35000.0,
+                "peso_kg": 1.5
+            },
+            "cantidad": 2,
+            "distancia_km": 4.5,
+            "total": 70000.0,
+            "peso_total": 3.0,
+            "estado": "Creado",
+            "dron_asignado": null
+        },
+        {
+            "numero": 2,
+            "usuario": {
+                "nombre": "Jessica ceballos",
+                "telefono": "3163483406",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Lorena I",
+                "ciudad": "PEREIRA"
+            },
+            "producto": {
+                "nombre": "Pizza personal",
+                "peso_kg": 1.0,
+                "precio": 22000.0
+            },
+            "cantidad": 1,
+            "peso_total": 1.0,
+            "22000.0": 22000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 3,
+            "usuario": {
+                "nombre": "Jessica ceballos",
+                "telefono": "3163483406",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Lorena I",
+                "ciudad": "PEREIRA"
+            },
+            "producto": {
+                "nombre": "Pizza personal",
+                "peso_kg": 1.0,
+                "precio": 22000.0
+            },
+            "cantidad": 1,
+            "peso_total": 1.0,
+            "22000.0": 22000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        }
+    ],
+    "contador_pedidos": 4
 }

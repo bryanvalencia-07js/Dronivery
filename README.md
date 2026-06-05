@@ -1,12 +1,8 @@
 # Dronivery
 
-## Sistema básico de gestión de pedidos de comida con entrega simulada por drones
+## Plataforma web de domicilios con asignación automática de drones
 
-Dronivery es un proyecto desarrollado en Python para la materia de Programación III.
-
-El sistema simula una empresa de comida a domicilio que utiliza drones para realizar entregas.
-
-El programa permite registrar drones, productos de comida, crear pedidos, seleccionar barrios en cobertura, calcular automáticamente la distancia de entrega y asignar un dron disponible según su batería, capacidad de carga y distancia máxima permitida.
+Dronivery Web es una aplicación desarrollada con Python, Flask, HTML, CSS y JavaScript que simula una plataforma de domicilios tipo Rappi, donde los conductores registran drones y los usuarios realizan pedidos que son asignados automáticamente a un dron disponible.
 
 ## Conceptos aplicados de Programación III
 
@@ -25,19 +21,31 @@ Base de datos pequeña en json
 
 Dronivery/
 │
-├── data/
-│   └── datos.json
+├── backend/
+│   ├── app.py
+│   ├── data/
+│   │   └── datos.json
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── Dron.py
+│   │   ├── Producto.py
+│   │   ├── Pedido.py
+│   │   ├── Usuario.py
+│   │   └── Conductor.py
+│   │
+│   └── services/
+│       ├── __init__.py
+│       └── SistemaDronivery.py
 │
-├── models/
-│   ├── __init__.py
-│   ├── Cliente.py
-│   ├── Dron.py
-│   ├── Pedido.py
-│   └── Producto.py
+├── frontend/
+│   ├── index.html
+│   ├── conductor.html
+│   ├── usuario.html
+│   ├── css/
+│   │   └── styles.css
+│   └── js/
+│       └── app.js
 │
-├── sistema/
-│   ├── __init__.py
-│   └── SistemaDronivery.py
-│
-├── main.py
-└── README.md
+├── README.md
+└── .gitignore

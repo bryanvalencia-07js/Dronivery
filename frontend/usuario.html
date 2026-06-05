@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dronivery - Usuario</title>
+    <link rel="stylesheet" href="/frontend/css/styles.css">
+</head>
+<body>
+
+    <main class="contenedor-principal">
+        <section class="tarjeta-formulario">
+            <a href="/" class="volver">← Volver</a>
+
+            <h1>Crear pedido</h1>
+            <p class="subtitulo">
+                Solicita tu comida y el sistema asignará automáticamente un dron disponible.
+            </p>
+
+            <form id="formUsuario">
+                <div class="grupo-formulario">
+                    <label for="nombreUsuario">Nombre del usuario</label>
+                    <input type="text" id="nombreUsuario" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="telefonoUsuario">Teléfono</label>
+                    <input type="text" id="telefonoUsuario" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="direccionUsuario">Dirección</label>
+                    <input type="text" id="direccionUsuario" required>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="ciudadUsuario">Ciudad</label>
+                    <select id="ciudadUsuario" required>
+                        <option value="">Seleccione una ciudad</option>
+                        <option value="PEREIRA">Pereira</option>
+                        <option value="DOSQUEBRADAS">Dosquebradas</option>
+                        <option value="SANTA ROSA DE CABAL">Santa Rosa de Cabal</option>
+                    </select>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="barrioUsuario">Barrio</label>
+                    <select id="barrioUsuario" required>
+                        <option value="">Primero seleccione una ciudad</option>
+                    </select>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="productoUsuario">Producto</label>
+                    <select id="productoUsuario" required>
+                        <option value="">Seleccione un producto</option>
+                        <option value="Hamburguesa clásica" data-precio="18000" data-peso="0.8">
+                            Hamburguesa clásica - $18.000
+                        </option>
+                        <option value="Pizza personal" data-precio="22000" data-peso="1.0">
+                            Pizza personal - $22.000
+                        </option>
+                        <option value="Perro caliente" data-precio="14000" data-peso="0.6">
+                            Perro caliente - $14.000
+                        </option>
+                        <option value="Combo alitas" data-precio="26000" data-peso="1.2">
+                            Combo alitas - $26.000
+                        </option>
+                    </select>
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="cantidadUsuario">Cantidad</label>
+                    <input type="number" id="cantidadUsuario" min="1" value="1" required>
+                </div>
+
+                <button type="submit" class="boton boton-usuario">
+                    Crear pedido
+                </button>
+            </form>
+
+            <div id="mensajeUsuario" class="mensaje"></div>
+        </section>
+    </main>
+
+    <script src="/frontend/js/app.js"></script>
+</body>
+</html>
