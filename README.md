@@ -17,6 +17,109 @@ Modularidad
 Manejo de archivos JSON
 Base de datos pequeña en json
 
+## Cómo ejecutar el proyecto localmente
+
+Este proyecto utiliza Python con Flask para el backend, y HTML, CSS y JavaScript para el frontend.
+
+GitHub Pages no ejecuta aplicaciones con backend en Python, por eso el proyecto debe ejecutarse de manera local usando Flask.
+
+### 1. Clonar el repositorio
+
+```bash
+git clone URL_DEL_REPOSITORIO
+```
+
+Luego entrar a la carpeta del proyecto:
+
+```bash
+cd Dronivery
+```
+
+### 2. Crear un entorno virtual
+
+En Linux o macOS:
+
+```bash
+python3 -m venv .venv
+```
+
+En Windows:
+
+```bash
+python -m venv .venv
+```
+
+### 3. Activar el entorno virtual
+
+En Linux o macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+En Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+### 4. Instalar dependencias
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Ejecutar el servidor Flask
+
+En Linux o macOS:
+
+```bash
+python3 app.py
+```
+
+En Windows:
+
+```bash
+python app.py
+```
+
+### 6. Abrir la aplicación en el navegador
+
+Después de ejecutar el servidor, abrir esta dirección:
+
+```text
+http://127.0.0.1:5000
+```
+
+Desde ahí se puede acceder a la pantalla principal de Dronivery, donde existen dos roles:
+
+* Usuario: permite crear pedidos.
+* Conductor: permite registrar drones disponibles.
+
+### 7. Detener el servidor
+
+Para detener Flask, presionar en la terminal:
+
+```bash
+Ctrl + C
+```
+
+### 8. Salir del entorno virtual
+
+```bash
+deactivate
+```
+
+## Nota
+
+El sistema guarda la información en el archivo:
+
+```text
+data/datos.json
+```
+
+Allí se almacenan los drones registrados, pedidos realizados y demás datos necesarios para simular el funcionamiento de la plataforma.
+
 ## Estructura del proyecto
 
 Dronivery/
