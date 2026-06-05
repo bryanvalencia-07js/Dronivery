@@ -145,12 +145,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 const resultado = await respuesta.json();
 
                 if (resultado.estado === "ok") {
-                    mensaje.textContent = `${resultado.mensaje} Dron asignado: ${resultado.dron.codigo}`;
-                    mensaje.className = "mensaje exito";
+                    const pedido = resultado.pedido;
+                    const dron = resultado.dron;
+                    const conductor = dron.conductor || {};
+
+                    mensaje.innerHTML = `
+                        <h3>Pedido #${pedido.numero} creado correctamente</h3>
+                        <p><strong>Producto:</strong> ${pedido.producto.nombre}</p>
+                        <p><strong>Cantidad:</strong> ${pedido.cantidad}</p>
+                        <p><strong>Total:</strong> $${pedido.total.toLocaleString("es-CO")}</p>
+                        <p><strong>Estado:</strong> ${pedido.estado}</p>
+                        <hr>
+                        <p><strong>Dron asignado:</strong> ${dron.codigo}</p>
+                        <p><strong>Modelo:</strong> ${dron.modelo}</p>
+                        <p><strong>Conductor:</strong> ${conductor.nombre || "No registrado"}</p>
+                        <p><strong>Ciudad:</strong> ${pedido.usuario.ciudad}</p>
+        `           ;
+
+                    mensaje.className = "resultado-pedido exito";
                     formUsuario.reset();
+
                 } else if (resultado.estado === "sin_dron") {
-                    mensaje.textContent = resultado.mensaje;
-                    mensaje.className = "mensaje error";
+                    const pedido = resultado.pedido;
+
+                    mensaje.innerHTML = `
+                        <h3>Pedido #${pedido.numero} creado</h3>
+                        <p><strong>Producto:</strong> ${pedido.producto.nombre}</p>
+                        <p><strong>Total:</strong> $${pedido.total.toLocaleString("es-CO")}</p>
+                        <p><strong>Estado:</strong> ${pedido.estado}</p>
+                        <hr>
+                        <p>No hay drones disponibles en esta ciudad por el momento.</p>
+                    `;
+
+                    mensaje.className = "resultado-pedido error";
+
                 } else {
                     mensaje.textContent = "No se pudo crear el pedido.";
                     mensaje.className = "mensaje error";
