@@ -119,6 +119,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const productoSelect = document.getElementById("productoUsuario");
             const productoSeleccionado = productoSelect.options[productoSelect.selectedIndex];
 
+            const precioProducto = Number(productoSeleccionado.getAttribute("data-precio"));
+            const pesoProducto = Number(productoSeleccionado.getAttribute("data-peso"));
+
             const datosPedido = {
                 nombre_usuario: document.getElementById("nombreUsuario").value,
                 telefono_usuario: document.getElementById("telefonoUsuario").value,
@@ -126,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 ciudad_usuario: document.getElementById("ciudadUsuario").value,
                 barrio_usuario: document.getElementById("barrioUsuario").value,
                 nombre_producto: productoSeleccionado.value,
-                precio_producto: productoSeleccionado.dataset.precio,
-                peso_producto: productoSeleccionado.dataset.peso,
+                precio_producto: precioProducto,
+                peso_producto: pesoProducto,
                 cantidad: document.getElementById("cantidadUsuario").value
             };
 
@@ -145,34 +148,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 const resultado = await respuesta.json();
 
                 if (resultado.estado === "ok") {
-                    const pedido = resultado.pedido;
-                    const dron = resultado.dron;
+                    const pedido = resultado.pedido || {};
+                    const dron = resultado.dron || {};
                     const conductor = dron.conductor || {};
+                    const usuario = pedido.usuario || pedido.cliente || {};
+                    const producto = pedido.producto || {};
+
+                    const total = Number(pedido.total || 0);
 
                     mensaje.innerHTML = `
                         <h3>Pedido #${pedido.numero} creado correctamente</h3>
-                        <p><strong>Producto:</strong> ${pedido.producto.nombre}</p>
-                        <p><strong>Cantidad:</strong> ${pedido.cantidad}</p>
-                        <p><strong>Total:</strong> $${pedido.total.toLocaleString("es-CO")}</p>
-                        <p><strong>Estado:</strong> ${pedido.estado}</p>
+                        <p><strong>Producto:</strong> ${producto.nombre || "No registrado"}</p>
+                        <p><strong>Cantidad:</strong> ${pedido.cantidad || 0}</p>
+                        <p><strong>Total:</strong> $${total.toLocaleString("es-CO")}</p>
+                        <p><strong>Estado:</strong> ${pedido.estado || "Creado"}</p>
                         <hr>
-                        <p><strong>Dron asignado:</strong> ${dron.codigo}</p>
-                        <p><strong>Modelo:</strong> ${dron.modelo}</p>
+                        <p><strong>Dron asignado:</strong> ${dron.codigo || "No asignado"}</p>
+                        <p><strong>Modelo:</strong> ${dron.modelo || "No registrado"}</p>
                         <p><strong>Conductor:</strong> ${conductor.nombre || "No registrado"}</p>
-                        <p><strong>Ciudad:</strong> ${pedido.usuario.ciudad}</p>
-        `           ;
+                        <p><strong>Ciudad:</strong> ${usuario.ciudad || "No registrada"}</p>
+                    `;
 
                     mensaje.className = "resultado-pedido exito";
                     formUsuario.reset();
 
                 } else if (resultado.estado === "sin_dron") {
-                    const pedido = resultado.pedido;
+                    const pedido = resultado.pedido || {};
+                    const producto = pedido.producto || {};
+                    const total = Number(pedido.total || 0);
 
                     mensaje.innerHTML = `
                         <h3>Pedido #${pedido.numero} creado</h3>
-                        <p><strong>Producto:</strong> ${pedido.producto.nombre}</p>
-                        <p><strong>Total:</strong> $${pedido.total.toLocaleString("es-CO")}</p>
-                        <p><strong>Estado:</strong> ${pedido.estado}</p>
+                        <p><strong>Producto:</strong> ${producto.nombre || "No registrado"}</p>
+                        <p><strong>Total:</strong> $${total.toLocaleString("es-CO")}</p>
+                        <p><strong>Estado:</strong> ${pedido.estado || "Pendiente por dron"}</p>
                         <hr>
                         <p>No hay drones disponibles en esta ciudad por el momento.</p>
                     `;
@@ -180,11 +189,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     mensaje.className = "resultado-pedido error";
 
                 } else {
-                    mensaje.textContent = "No se pudo crear el pedido.";
+                    mensaje.textContent = resultado.mensaje || "No se pudo crear el pedido.";
                     mensaje.className = "mensaje error";
                 }
 
             } catch (error) {
+                console.error("Error real:", error);
                 mensaje.textContent = "Error al conectar con el servidor.";
                 mensaje.className = "mensaje error";
             }

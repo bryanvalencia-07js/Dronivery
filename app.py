@@ -5,6 +5,7 @@ import re
 from flask import Flask, send_from_directory, jsonify, request
 
 app = Flask(__name__)
+app.json.sort_keys = False
 
 RUTA_DATOS = "data/datos.json"
 
@@ -201,9 +202,57 @@ def crear_pedido():
     ciudad_usuario = datos_recibidos.get("ciudad_usuario")
 
     nombre_producto = datos_recibidos.get("nombre_producto")
-    peso_producto = float(datos_recibidos.get("peso_producto"))
-    precio_producto = float(datos_recibidos.get("precio_producto"))
     cantidad = int(datos_recibidos.get("cantidad"))
+
+    productos_disponibles = {
+        "Hamburguesa clásica": {
+            "precio": 18000,
+            "peso_kg": 0.8
+        },
+        "Pizza personal": {
+            "precio": 22000,
+            "peso_kg": 1.0
+        },
+        "Perro caliente": {
+            "precio": 14000,
+            "peso_kg": 0.6
+        },
+        "Combo alitas": {
+            "precio": 26000,
+            "peso_kg": 1.2
+        },
+        "Salchipapa especial": {
+            "precio": 20000,
+            "peso_kg": 1.1
+        },
+        "Arroz chino personal": {
+            "precio": 25000,
+            "peso_kg": 1.3
+        },
+        "Combo hamburguesa doble": {
+            "precio": 32000,
+            "peso_kg": 1.5
+        },
+        "Burrito mixto": {
+            "precio": 24000,
+            "peso_kg": 1.0
+        },
+        "Sushi roll personal": {
+            "precio": 28000,
+            "peso_kg": 0.9
+        }
+    }
+
+    producto_encontrado = productos_disponibles.get(nombre_producto)
+
+    if producto_encontrado is None:
+        return jsonify({
+            "estado": "error",
+            "mensaje": "El producto seleccionado no existe en el catálogo."
+        }), 400
+
+    precio_producto = producto_encontrado["precio"]
+    peso_producto = producto_encontrado["peso_kg"]
 
     peso_total = peso_producto * cantidad
     total = precio_producto * cantidad

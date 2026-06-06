@@ -44,12 +44,11 @@
     ],
     "pedidos": [
         {
-            "numero": 1,
+            "codigo": "PED001",
             "cliente": {
-                "nombre": "bryan valencia",
-                "telefono": "3226967989",
-                "direccion": "cra 10 #52",
-                "barrio": "Jardín"
+                "nombre": "Carlos Perez",
+                "telefono": "3101234567",
+                "direccion": "Calle 123 #45-67, Ciudad"
             },
             "producto": {
                 "codigo": "123",
@@ -57,18 +56,173 @@
                 "precio": 35000.0,
                 "peso_kg": 1.5
             },
-            "cantidad": 2,
-            "distancia_km": 4.5,
-            "total": 70000.0,
-            "peso_total": 3.0,
-            "estado": "Creado",
+            "estado": "En preparación"
+        },
+        {
+            "numero": 4,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "Ciudad Palermo",
+                "ciudad": "PEREIRA"
+            },
+            "producto": {
+                "nombre": "Combo alitas",
+                "peso_kg": 1.2,
+                "precio": 26000.0
+            },
+            "cantidad": 1,
+            "peso_total": 1.2,
+            "26000.0": 26000.0,
+            "estado": "Pendiente por dron",
             "dron_asignado": null
         },
         {
-            "numero": 2,
+            "numero": 5,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "Villa Alquín",
+                "ciudad": "DOSQUEBRADAS"
+            },
+            "producto": {
+                "nombre": "Combo alitas",
+                "peso_kg": 1.2,
+                "precio": 26000.0
+            },
+            "cantidad": 1,
+            "peso_total": 1.2,
+            "26000.0": 26000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 6,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Varsovia",
+                "ciudad": "SANTA ROSA DE CABAL"
+            },
+            "producto": {
+                "nombre": "Salchipapa",
+                "peso_kg": 1.4,
+                "precio": 20000.0
+            },
+            "cantidad": 1,
+            "peso_total": 1.4,
+            "20000.0": 20000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 7,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Varsovia",
+                "ciudad": "SANTA ROSA DE CABAL"
+            },
+            "producto": {
+                "nombre": "Hamburguesa clásica",
+                "peso_kg": 0.8,
+                "precio": 18000.0
+            },
+            "cantidad": 1,
+            "peso_total": 0.8,
+            "18000.0": 18000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 8,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Varsovia",
+                "ciudad": "SANTA ROSA DE CABAL"
+            },
+            "producto": {
+                "nombre": "Hamburguesa clásica",
+                "peso_kg": 0.8,
+                "precio": 18000.0
+            },
+            "cantidad": 1,
+            "peso_total": 0.8,
+            "18000.0": 18000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 9,
+            "usuario": {
+                "nombre": "Bryan Alejandro Valencia",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "La Aurora",
+                "ciudad": "DOSQUEBRADAS"
+            },
+            "producto": {
+                "nombre": "Hamburguesa clásica",
+                "peso_kg": 0.8,
+                "precio": 18000.0
+            },
+            "cantidad": 1,
+            "peso_total": 0.8,
+            "18000.0": 18000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 10,
             "usuario": {
                 "nombre": "Jessica ceballos",
-                "telefono": "3163483406",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "Villa Fanny",
+                "ciudad": "DOSQUEBRADAS"
+            },
+            "producto": {
+                "nombre": "Perro caliente",
+                "peso_kg": 0.6,
+                "precio": 14000.0
+            },
+            "cantidad": 1,
+            "peso_total": 0.6,
+            "14000.0": 14000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 11,
+            "usuario": {
+                "nombre": "Jessica ceballos",
+                "telefono": "3226967989",
+                "direccion": "Carrera 10 #52D-30",
+                "barrio": "Las Gaviotas",
+                "ciudad": "PEREIRA"
+            },
+            "producto": {
+                "nombre": "Perro caliente",
+                "peso_kg": 0.6,
+                "precio": 14000.0
+            },
+            "cantidad": 1,
+            "peso_total": 0.6,
+            "14000.0": 14000.0,
+            "estado": "Pendiente por dron",
+            "dron_asignado": null
+        },
+        {
+            "numero": 12,
+            "usuario": {
+                "nombre": "Jessica ceballos",
+                "telefono": "3226967989",
                 "direccion": "Carrera 10 #52D-30",
                 "barrio": "La Lorena I",
                 "ciudad": "PEREIRA"
@@ -85,25 +239,25 @@
             "dron_asignado": null
         },
         {
-            "numero": 3,
+            "numero": 13,
             "usuario": {
                 "nombre": "Jessica ceballos",
-                "telefono": "3163483406",
+                "telefono": "3226967989",
                 "direccion": "Carrera 10 #52D-30",
-                "barrio": "La Lorena I",
-                "ciudad": "PEREIRA"
+                "barrio": "La Aurora",
+                "ciudad": "DOSQUEBRADAS"
             },
             "producto": {
                 "nombre": "Pizza personal",
                 "peso_kg": 1.0,
-                "precio": 22000.0
+                "precio": 22000
             },
             "cantidad": 1,
             "peso_total": 1.0,
-            "22000.0": 22000.0,
+            "22000": 22000,
             "estado": "Pendiente por dron",
             "dron_asignado": null
         }
     ],
-    "contador_pedidos": 4
+    "contador_pedidos": 14
 }
